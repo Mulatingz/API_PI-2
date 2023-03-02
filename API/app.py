@@ -14,7 +14,7 @@ import numpy as np
 mnist = fetch_openml('mnist_784', version=1)
 
 def knn():
-    sample = np.random.randint(70000, size=5000)
+    sample = np.random.randint(70000, size=50)
     data = mnist.data.iloc[sample]
     target = mnist.target.iloc[sample]
     xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8)
