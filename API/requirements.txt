@@ -21,3 +21,5 @@ wayscript==0.2.2
 Werkzeug==2.0.2
 zope.event==4.5.0
 zope.interface==5.4.0
+pathlib==1.0.1
+codecarbon==2.1.4
