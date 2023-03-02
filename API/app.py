@@ -7,19 +7,6 @@ from flask import Flask, session, render_template, request, g
 from codecarbon import EmissionsTracker
 tracker = EmissionsTracker()
 
-from sklearn.datasets import fetch_openml
-from sklearn.model_selection import train_test_split
-from sklearn import neighbors
-import numpy as np
-mnist = fetch_openml('mnist_784', version=1)
-
-def knn():
-    sample = np.random.randint(70000, size=50)
-    data = mnist.data.iloc[sample]
-    target = mnist.target.iloc[sample]
-    xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=0.8)
-    knn = neighbors.KNeighborsClassifier(n_neighbors=3)
-    knn.fit(xtrain, ytrain)
     
 
 app = Flask(__name__)
@@ -76,6 +63,5 @@ def close_connection(exception):
 
 if __name__ == '__main__':
     tracker.start()
-    knn()
     app.run()
     tracker.stop()
