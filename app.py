@@ -39,7 +39,7 @@ def remove_items():
                                          shopping_items=session["shopping_items"])
 
 def get_db():
-    p = Path(__file__).with_name('grocery_list.db')
+    p = Path(__file__).with_name('API/grocery_list.db')
     filename = p.absolute()
     db = getattr(g, '_database', None)
     if db is None:
