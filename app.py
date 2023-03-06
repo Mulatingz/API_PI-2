@@ -61,6 +61,5 @@ def close_connection(exception):
         db.close()
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    app.run(debug=TRUE)
     
