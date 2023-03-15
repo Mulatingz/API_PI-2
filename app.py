@@ -4,8 +4,8 @@ import sys
 import tempfile
 from pathlib import Path
 from flask import Flask, session, render_template, request, g
-from codecarbon import EmissionsTracker
-tracker = EmissionsTracker()
+from codecarbon import OfflineEmissionsTracker
+tracker = OfflineEmissionsTracker(country_iso_code="FRA")
 
     
 
