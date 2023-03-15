@@ -15,14 +15,14 @@ app.config["SESSION_COOKIE_NAME"] = "myCOOKIE_monSTER528"
 @app.route("/", methods=["POST", "GET"])
 def index():
     session["all_items"], session["shopping_items"] = get_db()
-    return render_template("index.html", all_items=session["all_items"],
+    return render_template("template/index.html", all_items=session["all_items"],
                                          shopping_items=session["shopping_items"])
 
 @app.route("/add_items", methods=["post"])
 def add_items():
     session["shopping_items"].append(request.form["select_items"])
     session.modified = True
-    return render_template("index.html", all_items=session["all_items"],
+    return render_template("template/index.html", all_items=session["all_items"],
                                          shopping_items=session["shopping_items"])
 
 @app.route("/remove_items", methods=["post"])
@@ -35,7 +35,7 @@ def remove_items():
             session["shopping_items"].pop(idx)
             session.modified = True
 
-    return render_template("index.html", all_items=session["all_items"],
+    return render_template("template/index.html", all_items=session["all_items"],
                                          shopping_items=session["shopping_items"])
 
 def get_db():
