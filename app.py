@@ -4,7 +4,8 @@ import sys
 import tempfile
 from pathlib import Path
 from flask import Flask, session, render_template, request, g
-
+from codecarbon import EmissionsTracker
+tracker = EmissionsTracker()
 
     
 
@@ -61,5 +62,7 @@ def close_connection(exception):
         db.close()
 
 if __name__ == '__main__':
+    tracker.start()
     app.run(debug=TRUE)
+    tracker.stop()
     
