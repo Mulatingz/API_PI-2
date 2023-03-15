@@ -43,7 +43,7 @@ def get_db():
     filename = p.absolute()
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect(grocery_list.db)
+        db = g._database = sqlite3.connect('grocery_list.db')
         cursor = db.cursor()
         cursor.execute("select name from groceries")
         all_data = cursor.fetchall()
