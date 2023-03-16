@@ -4,8 +4,8 @@ import sys
 import tempfile
 from pathlib import Path
 from flask import Flask, session, render_template, request, g
-from codecarbon import OfflineEmissionsTracker
-tracker = OfflineEmissionsTracker(country_iso_code="FRA")
+from codecarbon import EmissionsTracker
+tracker = EmissionsTracker()
 
     
 
@@ -63,6 +63,6 @@ def close_connection(exception):
 
 if __name__ == '__main__':
     tracker.start()
-    app.run(debug=TRUE)
+    app.run()
     tracker.stop()
     
